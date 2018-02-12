@@ -1,7 +1,7 @@
 # Data-Structures-and-Algorithms
 Let's learn something fun!
 
-//Bubble Sort
+//Bubble Sort in Java
 
 public class Main {
 
