@@ -85,5 +85,51 @@ public class Main {
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Insertion Sort
+
+//quadratic algorithm O(n^2)
+
+//Sort in ascending order
+
+//Stable algorithm
+
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] intArray = {18, 35, 10, -15, 60, 3, 66};
+        // outer loop is to grow the sort of partition by one
+        for (int firstUnsortedIndex = 1; firstUnsortedIndex < intArray.length; firstUnsortedIndex++) {
+            // save the value we are going to insert into a new element
+            int newElement = intArray[firstUnsortedIndex];
+            // i declared outside of loop - index used to traverse the sorted partition from right to left.
+            int i;
+            // inner loop used to traverse the sorted partition and look for the correct position to insert the element and to do the shifting
+            for (i = firstUnsortedIndex; i > 0 && intArray[i - 1] > newElement; i--) {
+                // shift element from left to right
+                intArray[i] = intArray[i - 1];
+            }
+            // assign intArray[i] with newElement
+            intArray[i] = newElement;
+
+        }
+        // print intArray
+        for (int i = 0; i < intArray.length; i++) {
+            System.out.println(intArray[i]);
+        }
+    }
+}
+
+/*Notes:
+
+inner loop - if we haven't hit the front of the array, and if the element[i-1] is greater than the element we are inserting. If that's the case we want to shift the element at i-1 to the right because we need to make room for new element
+
+*/
+
 
 
