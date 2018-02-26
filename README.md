@@ -1,5 +1,6 @@
 # Data-Structures-and-Algorithms
-Let's learn something fun!
+
+Algorithms and notes from Data Structures and Algorithms: Deep Dive Using Java by Sarah Ettritch  
 
 //Bubble Sort in Java
 
@@ -130,6 +131,53 @@ public class Main {
 inner loop - if we haven't hit the front of the array, and if the element[i-1] is greater than the element we are inserting. If that's the case we want to shift the element at i-1 to the right because we need to make room for new element
 
 */
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Shell Sort
+
+//In-place algorithm
+
+// time complexity depends on gap; does not require as much shifting as insertion sort
+
+//unstable algorithm
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] intArray = {20, 35, -15, 7 , 55, 1 , -22};
+
+            //loop to initialize the gap value, and then reduce it on each iteration
+            for (int gap = intArray.length / 2; gap > 0; gap /= 2) {
+
+                //loop to compare and shift elements
+                for (int i = gap; i < intArray.length; i++) {
+                    int newElement = intArray[i];
+
+                    //use j to do traversing
+                    int j = i;
+
+                    //inner loop to find correct position to insert
+                    while (j >= gap && intArray[j -gap] > newElement) {
+                        //shift element
+                        intArray[j] = intArray[j - gap];
+
+                        //used to compare new element with whatever comes x positions over
+                        j -= gap;
+                    }
+                    //assign intArray[i] with newElement
+                    intArray[j] = newElement;
+
+                }
+            }
+
+            for (int i = 0; i < intArray.length; i++) {
+                System.out.println(intArray[i]);
+            }
+
+    }
+}
 
 
 
